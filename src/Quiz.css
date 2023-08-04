@@ -1,0 +1,93 @@
+/* Quiz.css */
+
+/* Container for the whole Quiz app */
+.quiz-container {
+    max-width: 40vw;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #cfd4abc6;
+  }
+ 
+  /* Styling for questions */
+  .question {
+    margin: 10px 0;
+  }
+  
+  /* Styling for options */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  
+  
+  /* Styling for user answers and correct answers */
+  .user-answer {
+    color: #fff;
+    padding: 3px;
+    border-radius: 3px;
+  }
+  
+  .correct-answer {
+    color: #44bd32;
+  }
+  
+  .incorrect-answer {
+    color: #e74c3c;
+  }
+  
+  /* Styling for buttons */
+  button {
+    margin: 10px 5px 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button {
+    background-color: #44bd32;
+    color: #fff;
+  }
+  
+  .clear-button {
+    background-color: #e74c3c;
+    color: #fff;
+  }
+  
+  /* Styling for the Quiz Finished message */
+  .quiz-finished {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f1c40f;
+    color: #fff;
+  }
+  
+  /* Quiz.css */
+/* ... Existing styles ... */
+
+/* Styling for the button container */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    margin-top: 10px;
+  }
+  
+  /* Styling for the buttons */
+  button {
+    /* Existing button styles... */
+    margin: 0 5px; /* Add a margin between the buttons */
+  }
+  .buttons-container {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  /* Styles for the buttons */
+  .submit-button,
+  .clear-button {
+    margin: 5px;
+  }

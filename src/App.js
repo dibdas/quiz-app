@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState } from "react";
+import Quiz from "./Quiz";
+import QuizPDF from "./quizPdf.js";
+import quizData from "./quizData";
 
-function App() {
+const App = () => {
+  const [showQuiz, setShowQuiz] = useState(true);
+
+  const toggleView = () => {
+    setShowQuiz(!showQuiz);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {showQuiz ? (
+        <Quiz quizData={quizData} />
+      ) : (
+        <QuizPDF quizData={quizData} />
+      )}
+      <button onClick={toggleView}>
+        {showQuiz ? "View PDF" : "Back to Quiz"}
+      </button>
     </div>
   );
-}
+};
 
 export default App;
