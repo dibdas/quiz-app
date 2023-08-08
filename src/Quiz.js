@@ -7,7 +7,7 @@ const Quiz = ({ quizData }) => {
     new Array(quizData.length).fill("")
   );
   const [showScore, setShowScore] = useState(false);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState("");
 
   const handleAnswerChange = (index, event) => {
     const { name, value } = event.target;
@@ -29,24 +29,40 @@ const Quiz = ({ quizData }) => {
     }
   };
 
-  const calculateScore = () => {
+  const calculateScore = (event) => {
+    event.preventDefault();
+    console.log(score);
     let totalScore = 0;
     for (let i = 0; i < quizData.length; i++) {
       if (
         userAnswers[i].split("")[0] === quizData[i].correctAnswer.split("")[0]
       ) {
-        totalScore++;
+        console.log(userAnswers[i].split("")[0]);
+        console.log(quizData[i].correctAnswer.split("")[0]);
+        totalScore = totalScore + 1;
+        // console.log(totalScore);
+        // setScore(totalScore);
+        // console.log(score);
       }
     }
-    setScore(totalScore);
-    score > 0 ? setShowScore(false) : setShowScore(true);
+    console.log(totalScore);
+    // setScore(totalScore);
+    showAnswer(totalScore);
+    console.log(score);
   };
+  function showAnswer(scoring) {
+    setScore(scoring);
+    score || scoring > 0 ? setShowScore(true) : setShowScore(false);
+    console.log(score);
+  }
 
   const handleClearAnswers = () => {
     setUserAnswers(new Array(quizData.length).fill(""));
     setShowScore(false);
     setScore(0);
   };
+  console.log(showScore);
+  console.log(score);
 
   return (
     <div className="quiz-container">
@@ -96,7 +112,6 @@ const Quiz = ({ quizData }) => {
           />
         </div>
       ))}
-
       <div className="buttons-container">
         <button className="submit-button" onClick={calculateScore}>
           Submit
@@ -105,7 +120,6 @@ const Quiz = ({ quizData }) => {
           Clear Answers
         </button>
       </div>
-
       {/* <button className="submit-button" onClick={calculateScore}>
         Submit
       </button>
